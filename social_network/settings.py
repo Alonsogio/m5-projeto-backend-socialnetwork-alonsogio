@@ -45,6 +45,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "rest_framework",
+    "channels",
 ]
 
 MY_APPS = [
@@ -54,6 +55,7 @@ MY_APPS = [
     "posts",
     "likes",
     "comments",
+    "chat",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
