@@ -3,6 +3,7 @@ from rest_framework.validators import UniqueValidator
 from comments.serializers import CommentsSerializer
 
 from followers.serializers import FollowersSerializer
+from messagers.serializers import MessageSerializer
 from posts.serializers import PostsSerializer
 from .models import User
 from friends.serializers import FriendsSerializer
@@ -25,6 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
     followers = FollowersSerializer(many=True, read_only=True)
     posts = PostsSerializer(many=True, read_only=True)
     comments = CommentsSerializer(many=True, read_only=True)
+    messagers = MessageSerializer(many=True, read_only=True)
 
     class Meta:
         model = User
@@ -39,6 +41,7 @@ class UserSerializer(serializers.ModelSerializer):
             "friends",
             "posts",
             "comments",
+            "messagers",
         ]
 
         extra_kwargs = {

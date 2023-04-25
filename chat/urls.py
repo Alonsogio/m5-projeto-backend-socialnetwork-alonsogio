@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import create_room, join_room
+from .views import RoomChat, RoomCreate
 
 urlpatterns = [
-    path("create-room/", create_room, name="create-room"),
-    path("join-room/", join_room, name="join-room"),
+    path("rooms/<int:pk>/", RoomChat.as_view(), name="room-chat"),
+    path("rooms/create/", RoomCreate.as_view(), name="create-room"),
 ]

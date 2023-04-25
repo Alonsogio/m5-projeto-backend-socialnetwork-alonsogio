@@ -1,5 +1,9 @@
 {
+  "scripts": {
+    "start": "uvicorn social_network.asgi:application --host 0.0.0.0 --port 8000 --workers 4 --reload"
+  },
   "dependencies": {
     "socket.io-client": "^4.6.1"
   }
 }
+
