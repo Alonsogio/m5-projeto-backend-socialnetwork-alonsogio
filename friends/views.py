@@ -23,7 +23,7 @@ class FriendsView(generics.ListCreateAPIView):
         user2 = get_object_or_404(User, id=pk)
         if user == user2:
             return Response(
-                {"message": "you can't send friend request to yourself!"},
+                {"message": "you can't send friend request to yourself!!"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         friend_req = Friend.objects.filter(to_user=pk).first()
