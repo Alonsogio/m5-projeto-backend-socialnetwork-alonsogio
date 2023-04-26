@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+from datetime import timedelta
 from pathlib import Path
 
 # from datetime import timedelta
@@ -105,7 +106,10 @@ DATABASES = {
     },
 }
 
-SIMPLE_JWT = {"USER_ID_CLAIM": "user_id"}
+SIMPLE_JWT = {
+    "USER_ID_CLAIM": "user_id",
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+}
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
