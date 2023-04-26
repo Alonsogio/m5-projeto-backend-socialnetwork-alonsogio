@@ -11,6 +11,8 @@ class Friend(models.Model):
 
     of = models.CharField(max_length=255)
 
+    id_request_friend = models.IntegerField()
+
     request_time = models.DateTimeField(auto_now_add=True)
 
     accepted = models.BooleanField(default=False)

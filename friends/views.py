@@ -36,7 +36,11 @@ class FriendsView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         user2 = get_object_or_404(User, id=self.kwargs["pk"])
-        serializer.save(to_user=user2, of=self.request.user.username)
+        serializer.save(
+            to_user=user2,
+            of=self.request.user.username,
+            id_request_friend=self.request.user.id,
+        )
 
 
 class FriendsDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -64,7 +68,9 @@ class FriendsDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def perform_create(self, serializer):
         return serializer.save(
-            to_user=self.kwargs.get("pk"), request_user=self.request.user.username
+            to_user=self.kwargs.get("pk"),
+            request_user=self.request.user.username,
+            id_request_friend=self.request.user.id,
         )
 
     lookup_url_kwarg = "pk"
